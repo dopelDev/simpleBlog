@@ -1,5 +1,6 @@
 # ignore all files from the backend/env directory
 backend/env/*
+backend/db.sqlite3
 # ignore all files from the frontend/node_modules directory
 frontend/node_modules/*
 # ignore all files from the frontend/build directory
