@@ -4,8 +4,7 @@ backend/env/*
 frontend/node_modules/*
 # ignore all files from the frontend/build directory
 frontend/build/*
-# ignore all files from the dist directory
-frontend/dist/*
-# ignore all files from the Vue.js dist directory
-frontend/vue/dist/*
-
+# ignore all files from webpack configurations
+frontend/webpack.common.js
+frontend/webpack.dev.js
+frontend/webpack.prod.js
