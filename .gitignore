@@ -1,1 +1,11 @@
+# ignore all files from the backend/env directory
 backend/env/*
+# ignore all files from the frontend/node_modules directory
+frontend/node_modules/*
+# ignore all files from the frontend/build directory
+frontend/build/*
+# ignore all files from the dist directory
+frontend/dist/*
+# ignore all files from the Vue.js dist directory
+frontend/vue/dist/*
+
