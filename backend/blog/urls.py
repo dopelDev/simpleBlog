@@ -54,4 +54,5 @@ urlpatterns_swagger = [
 # API URL
 urlpatterns += [
     path('api/v1/', include(urlpatterns_swagger) ),
+    path('api/v1/', include('appBlog.urls')),
 ]

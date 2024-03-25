@@ -57,19 +57,37 @@ class myUser(AbstractBaseUser, PermissionsMixin):
 # Post Model with title, content, author fields
 
 class Post(models.Model):
+    STATUS_CHOICES = (
+        ('draft', 'Draft'),
+        ('published', 'Published'),
+    )
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    slug = models.SlugField(max_length=255, unique=True)
     author = models.ForeignKey(myUser, on_delete=models.CASCADE, related_name='posts')
+    content = models.TextField()
+    published = models.DateTimeField(default=timezone.now)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
+
+    class Meta:
+        ordering = ('-published',)
 
     def __str__(self):
         return self.title
 
 # Comment Model with post, author, content, created_at fields
 class Comment(models.Model):
+    STATUS_CHOICES = (
+        ('unproved', 'Unproved'),
+        ('published', 'Published'),
+    )
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(myUser, on_delete=models.CASCADE, related_name='comments')
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='unproved')
 
     def __str__(self):
         return f'Comentario de {self.author} en {self.post}'
