@@ -21,6 +21,7 @@ from django.http import HttpResponse
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 # home page
 def home(request):
@@ -54,5 +55,7 @@ urlpatterns_swagger = [
 # API URL
 urlpatterns += [
     path('api/v1/', include(urlpatterns_swagger) ),
+    path('api/v1/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/v1/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/v1/', include('appBlog.urls')),
 ]
