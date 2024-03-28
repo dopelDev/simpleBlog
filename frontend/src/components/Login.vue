@@ -1,35 +1,33 @@
 <template>
-	<section class="section">
-		<div class="container">
+	<section class="container is-fluid color1">
+		<MainBar />
+		<div class="section is-medium">
 			<div class="columns is-centered">
-				<div class="column is-5-tablet is-4-desktop is-3-widescreen">
-					<form @submit.prevent="login" class="box">
-						<div class="field">
-							<label for="username" class="label">Nombre de Usuario</label>
-							<div class="control has-icons-left">
-								<input type="text" id="username" class="input" required v-model="username" placeholder="e.g. johndoe">
-								<span class="icon is-small is-left">
-									<i class="fa fa-user"></i>
-								</span>
+				<div class="column is-5">
+					<div class="box color4">
+						<form @submit.prevent="login">
+							<h1 class="title is-4 has-text-centered text-color2">Login</h1>
+							<div class="field">
+								<div class="block my-4">
+									<label for="username" class="label text-color2">Username</label>
+									<input type="text" id="username" class="input" required v-model="username" placeholder="Username">
+								</div>
 							</div>
-						</div>
-
-						<div class="field">
-							<label for="password" class="label">Contraseña</label>
-							<div class="control has-icons-left">
-								<input type="password" id="password" class="input" required v-model="password" placeholder="*******">
-								<span class="icon is-small is-left">
-									<i class="fa fa-lock"></i>
-								</span>
+							<div class="field">
+								<div class="block my-4">
+									<label for="password" class="label text-color2">Password</label>
+									<input type="password" id="password" class="input" required v-model="password" placeholder="*******">
+								</div>
 							</div>
-						</div>
-
-						<div class="field">
-							<button type="submit" class="button is-success">
-								Iniciar Sesión
-							</button>
-						</div>
-					</form>
+							<div class="field">
+								<div class="block my-4">
+									<button type="submit" class="button is-success">
+										Login
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -37,8 +35,12 @@
 </template>
 
 <script>
+	import MainBar from 'Components/MainBar.vue';
 	export default {
 		name: 'Login',
+		components: {
+			MainBar
+		},
 		data() {
 			return {
 				username: '',

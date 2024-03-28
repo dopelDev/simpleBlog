@@ -14,6 +14,8 @@ module.exports = {
 		alias: {
 			'@': path.resolve(__dirname, 'src'),
 			'Assets': path.resolve(__dirname, 'src/assets'),
+			'Components': path.resolve(__dirname, 'src/components'),
+			'Fonts': path.resolve(__dirname, 'src/assets/fonts'),
 		},
 		extensions: ['.js', '.vue'],
 	},
@@ -35,13 +37,15 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				use: ['vue-style-loader',
+				use: [
+					'vue-style-loader',
 					'css-loader'
 				],
 			},
 			{
 				test: /\.(sa|sc|c)ss$/,
-				use: ['vue-style-loader',
+				use: [
+					'vue-style-loader',
 					'css-loader',
 					'sass-loader',
 				],
@@ -62,7 +66,7 @@ module.exports = {
 					loader: 'file-loader',
 					options: {
 						name: '[name].[ext]',
-						outputPath: 'assets/fonts',
+						outputPath: 'Assets/fonts',
 					},
 				},
 			},

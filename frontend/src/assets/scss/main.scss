@@ -1,3 +1,49 @@
 @charset "utf-8";
 @import "~bulma/bulma";
 
+$color1: #224b69;
+$color2: #365f7a;
+$color3: #3c4550;
+$color4: #cacabc;
+$color5: #285270;
+
+.color1 {
+  background-color: $color1;
+}
+.color2 {
+  background-color: $color2;
+}
+.color3 {
+  background-color: $color3;
+}
+.color4 {
+  background-color: $color4;
+}
+.color5 {
+  background-color: $color5;
+}
+
+.text-color1 {
+  color: $color1;
+}
+.text-color2 {
+  color: $color2;
+}
+.text-color3 {
+  color: $color3;
+}
+.text-color4 {
+  color: $color4;
+}
+.text-color5 {
+  color: $color5;
+}
+@font-face {
+  font-family: 'MartianMonoNerdFont';
+  src: url('~Fonts/MartianMonoNerdFont-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+.MartianMonoNerdFont {
+  font-family: 'MartianMonoNerdFont', monospace;
+}
