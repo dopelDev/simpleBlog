@@ -11,6 +11,8 @@ class myUserManager(BaseUserManager):
             raise ValueError('The email is required')
         if not username:
             raise ValueError('The username is required')
+        if not password:
+            raise ValueError('The password is required')
         
         email = self.normalize_email(email)
         user = self.model(username=username, email=email, **extra_fields)
@@ -33,8 +35,8 @@ class myUser(AbstractBaseUser, PermissionsMixin):
 
     objects = myUserManager()
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email', 'password']
 
     # Define related_name para evitar colisiones
     groups = models.ManyToManyField(
